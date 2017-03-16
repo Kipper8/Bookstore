@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.model.Book;
 import com.example.model.BookRepository;
@@ -19,7 +20,10 @@ public class BookController {
 	@Autowired
 	private BookRepository repository;
 	
-	
+	@RequestMapping("/login")
+	public String login() {
+    	return "login";
+    }
 	@RequestMapping(value = "/booklist", method = RequestMethod.GET)
 	public String booklist(Model model) {
 		List<Book> booklist = (List<Book>) repository.findAll();
