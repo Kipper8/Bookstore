@@ -15,7 +15,7 @@
 	</div>
 	<div class="col-md-4" style="padding:20px 0">
 		<form th:action="@{/logout}" method="post">
-			<input type="submit" value="Sign Out" class="btn btn-danger"/>
+			<input type="submit" onclick="return confirm('Are you sure?')" value="Sign Out" class="btn btn-danger"/>
 		</form>
 	</div>
 	<div style="padding:0 20px">
@@ -32,7 +32,7 @@
     		<td th:text="${books.title}"></td>
     		<td th:text="${books.isbn}"></td>
     		<td th:text="${books.year}"></td>
-    		<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/deleteBook/{id}(id=${books.id})}" class="btn btn-danger">Delete</a></td>
+    		<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/deleteBook/{id}(id=${books.id})}" onclick="return confirm('Are you sure?')" class="btn btn-danger">Delete</a></td>
     	</tr>
     </table>
     <a href="/addBook" class="btn btn-success">Add Book</a>
